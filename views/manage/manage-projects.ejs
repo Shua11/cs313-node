@@ -53,7 +53,7 @@
                                 <select class="custom-select custom-select-lg" id="inputGroupSelect" name="inputSelect"
                                     required>
                                     <option value="0" selected>Choose...</option>
-                                    <div id="dropOptions"></div>
+                                    <div id="ajaxResponse"></div>
                                 </select>
                                 <div class="input-group-append">
                                     <a class="btn btn-primary btn-lg" onclick="submitForm('edit.php')" role="button"
@@ -72,6 +72,10 @@
         </section>
 
 
+        <div>
+            <p>Testing:</p>
+            <p id="test"></p>
+        </div>
 
 
         <%- include('../partials/endScripts'); %>
@@ -108,6 +112,7 @@
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             let jsonObj = JSON.parse(xhttp.responseText);
+                            document.getElementById("test").innerHTML = jsonObj;
 
 
                             jsonObj.forEach(element => {
@@ -117,7 +122,7 @@
                                 dropOptions += `<option value="` + number + `">` + project_name + `</option>`;
 
 
-                                document.getElementById("dropOptions").innerHTML = dropOptions;
+                                document.getElementById("ajaxResponse").innerHTML = dropOptions;
                             });
                         }
                     };
