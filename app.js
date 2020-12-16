@@ -30,39 +30,39 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 
-app.use((req, res, next) => {
+// app.use((req, res, next) => {
 
-    const connectionString = process.env.DATABASE_URL;
+//     const connectionString = process.env.DATABASE_URL;
 
-    const pool = new Pool({ connectionString: connectionString });
+//     const pool = new Pool({ connectionString: connectionString });
 
-    // const { Pool } = require('pg')
+//     // const { Pool } = require('pg')
 
-    // const pool = new Pool({
-    //     user: '',
-    //     host: '',
-    //     database: '',
-    //     password: ''
-    // })
-    const query = 'SELECT * FROM project'
-    // const userInput = 42
+//     // const pool = new Pool({
+//     //     user: '',
+//     //     host: '',
+//     //     database: '',
+//     //     password: ''
+//     // })
+//     const query = 'SELECT * FROM project'
+//     // const userInput = 42
 
-    pool.query(query, (err, result) => {
-        // If an error occurred...
-        if (err) {
-            console.log("Error in query: ")
-            console.log(err);
-        }
+//     pool.query(query, (err, result) => {
+//         // If an error occurred...
+//         if (err) {
+//             console.log("Error in query: ")
+//             console.log(err);
+//         }
 
-        // Log this to the console for debugging purposes.
-        console.log("Back from DB with result:");
-        console.log(result);
-    })
+//         // Log this to the console for debugging purposes.
+//         console.log("Back from DB with result:");
+//         console.log(result);
+//     })
 
-    pool.end();
+//     pool.end();
 
-    next()
-})
+//     next()
+// })
 
 
 

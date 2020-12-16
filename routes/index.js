@@ -42,7 +42,8 @@ router.get('/', function (req, res, next) {
             console.log(err);
         }
 
-        result.rows.forEach(element => {
+        let dbresult = result.rows
+        dbresult.forEach(element => {
 
             let number = element.id;
             let project_name = element.project_name;
