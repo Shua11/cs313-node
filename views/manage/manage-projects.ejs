@@ -112,7 +112,7 @@
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             let jsonObj = JSON.parse(xhttp.responseText);
-                            document.getElementById("test").innerHTML = jsonObj;
+                            // document.getElementById("test").innerHTML = jsonObj;
 
 
                             jsonObj.forEach(element => {
@@ -122,7 +122,7 @@
                                 dropOptions += `<option value="` + number + `">` + project_name + `</option>`;
 
 
-                                document.getElementById("ajaxResponse").innerHTML = dropOptions;
+                                document.getElementById("test").innerHTML = dropOptions;
                             });
                         }
                     };
