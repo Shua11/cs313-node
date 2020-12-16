@@ -146,41 +146,33 @@ router.post('/formaddproject', (req, res, next) => {
 })
 
 router.post('/projectdelete', (req, res, next) => {
-    // const { pname, pnote, pdesc, fileToUpload, idesc } = req.body
+    const { inputSelect } = req.body
 
-    // const imagename = 'https://via.placeholder.com/512x512.png?text=Image+Upload+Unavailable'
+    const connectionString = process.env.DATABASE_URL
 
-    // let chkfeatured = false
+    const pool = new Pool({ connectionString: connectionString })
 
-    // if (req.body.chkbox) {
-    //     chkfeatured = true
-    // }
+    const query = `DELETE FROM project WHERE id = ${inputSelect}`
 
+    // query = `DELETE FROM project WHERE id = ${inputSelect}`
+    pool.query(query, (err, result) => {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err)
+        }
 
-    // const connectionString = process.env.DATABASE_URL
+        // res.json(result)
 
-    // const pool = new Pool({ connectionString: connectionString })
+        pool.end();
+    })
 
-    // const query = `INSERT INTO project  ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES ( '${pname}', '${pnote}', '${pdesc}', '${imagename}', '${idesc}', ${chkfeatured})`
-
-    // pool.query(query, (err, result) => {
-    //     // If an error occurred...
-    //     if (err) {
-    //         console.log("Error in query: ")
-    //         console.log(err)
-    //     }
-
-    //     // res.json(result)
-
-    //     pool.end();
-    // })
-
-    // res.render('./manage/add-project', {
-    //     title: 'PRC Engineering',
-    //     activeNav: 'edit',
-    //     projectSent: 'true'
-    // })
-    res.json(req.body)
+    res.render('./manage/add-project', {
+        title: 'PRC Engineering',
+        activeNav: 'edit',
+        projectSent: 'true'
+    })
+    // res.json(req.body)
 })
 
 
