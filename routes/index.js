@@ -136,12 +136,16 @@ router.post('/formaddproject', (req, res, next) => {
             console.log(err)
         }
 
-        res.json(result)
+        // res.json(result)
 
         pool.end();
     })
 
-    // res.json(req.body)
+    res.render('./manage/add-project', {
+        title: 'PRC Engineering',
+        activeNav: 'edit',
+        projectSent: 'true'
+    })
 })
 
 router.post('/email', (req, res, next) => {
