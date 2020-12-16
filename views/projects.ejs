@@ -36,7 +36,7 @@
         <section class="featProj">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-3" id="ajaxCardResponse">
                         <!-- <button onclick="myfunction()" id="myBtn" title="Go to top">Top</button> -->
                         <input type="image" class="projbtn" src="images/projects/Academy-Bridge2-791x1024.jpg"
                             onclick="myfunction()" />
@@ -50,21 +50,14 @@
                     <div class="col-sm">
                         <div class="jumbotron shift-down">
                             <div>
-                                <h2 id="projectTitle">Academy Blvd. Bridge at Cottonwood Creek</h2>
+                                <h2 id="projectTitle">Project thumbnails</h2>
                                 <hr class="my-4">
                                 <p id="projectDescription">
-                                    PRC was a member of the design team, led by CP&Y, Inc., responsible for the Grading,
-                                    Erosion and Stormwater Quality Control Plan/Report (GESC). The GSEC included a
-                                    narrative report describing erosion and sedimentation control during construction
-                                    operations. Grading Plans, details and specifications for recommended control
-                                    measures (BMPs) were also included in the GESC to ensure effective erosion control
-                                    and the preservation of the stormwater quality during the replacement of the bridge
-                                    and construction of associated trail improvements and stream bank stabilization
-                                    measures.
+                                    The projects are dynamically added to the left as image thumbnails
                                 </p>
                                 <hr class="my-4">
                                 <p id="projectNote">
-                                    PRC is happy to have been part of such a challenging project.
+                                    Enjoy
                                 </p>
                             </div>
                         </div>
@@ -95,6 +88,45 @@
                         console.log("CLICKED");
                     }
 
+
+                    function getFeatured() {
+                        var xhttp = new XMLHttpRequest();
+
+                        let projectCards = '';
+                        let featuredModals = '';
+
+                        let number = '';
+                        let project_name = '';
+                        let project_note = '';
+                        let project_description = '';
+                        let project_image = '';
+                        let project_image_description = '';
+                        let bFeatured = '';
+
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                let jsonObj = JSON.parse(xhttp.responseText);
+                                // console.log(jsonObj)
+
+                                jsonObj.forEach(element => {
+                                    number = element.id;
+                                    project_name = element.project_name;
+                                    project_note = element.project_note;
+                                    project_description = element.project_description;
+                                    project_image = element.project_image;
+                                    project_image_description = element.project_image_description;
+                                    bFeatured = element.bFeatured;
+
+                                    projectCards += `<input type="image" class="projbtn" src="` + project_image + `" onclick="myfunction()" />`;
+
+
+                                    document.getElementById("ajaxCardResponse").innerHTML = projectCards;
+                                });
+                            }
+                        };
+                        xhttp.open("GET", "/ajaxProjectRequest", true);
+                        xhttp.send();
+                    }
 
 
                 </script>

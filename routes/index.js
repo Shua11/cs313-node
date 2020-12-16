@@ -156,4 +156,25 @@ router.get('/ajaxFeaturedRequest', (req, res, next) => {
     })
 })
 
+router.get('/ajaxProjectRequest', (req, res, next) => {
+    const connectionString = process.env.DATABASE_URL;
+
+    const pool = new Pool({ connectionString: connectionString });
+
+    const query = 'SELECT * FROM project'
+
+    pool.query(query, (err, result) => {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+
+        res.json(result.rows)
+
+        pool.end();
+    })
+})
+
+
 module.exports = router;
