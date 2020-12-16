@@ -52,8 +52,6 @@
                             <div class="input-group">
                                 <select class="custom-select custom-select-lg" id="inputGroupSelect" name="inputSelect"
                                     required>
-                                    <option value="0" selected>Choose...</option>
-                                    <option id="ajaxResponse"></option>
                                 </select>
                                 <div class="input-group-append">
                                     <a class="btn btn-primary btn-lg" onclick="submitForm('edit.php')" role="button"
@@ -103,7 +101,7 @@
                 function getDropOptions() {
                     var xhttp = new XMLHttpRequest();
 
-                    let dropOptions = '';
+                    let dropOptions = `<option value="0" selected>Choose...</option>`;
 
                     let number = '';
                     let project_name = '';
