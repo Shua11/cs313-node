@@ -38,15 +38,6 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div id="ajaxCardResponse"></div>
-                        <!-- <button onclick="myfunction()" id="myBtn" title="Go to top">Top</button> -->
-                        <input type="image" class="projbtn" src="images/projects/Academy-Bridge2-791x1024.jpg"
-                            onclick="myfunction()" />
-                        <input type="image" class="projbtn" src="images/projects/Random-Rd-pond2-791x1024.jpg"
-                            onclick="myfunction()" />
-                        <input type="image" class="projbtn" src="images/projects/W-Colorado-1024x721.jpg"
-                            onclick="myfunction()" />
-                        <!-- <div class="jumbotron shift-down"> -->
-                        <!-- </div> -->
                     </div>
                     <div class="col-sm">
                         <div class="jumbotron shift-down">
@@ -66,12 +57,6 @@
                 </div>
             </div>
         </section>
-
-
-        <div>
-            <p>Testing:</p>
-            <p id="test"></p>
-        </div>
 
 
         <!-- Footer -->
@@ -118,8 +103,6 @@
                         xhttp.onreadystatechange = function () {
                             if (this.readyState == 4 && this.status == 200) {
                                 let jsonObj = JSON.parse(xhttp.responseText);
-                                console.log(jsonObj)
-                                document.getElementById("test").innerHTML = jsonObj;
 
 
                                 jsonObj.forEach(element => {
