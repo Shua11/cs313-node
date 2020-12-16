@@ -53,7 +53,7 @@
                                 <select class="custom-select custom-select-lg" id="inputGroupSelect" name="inputSelect"
                                     required>
                                     <option value="0" selected>Choose...</option>
-                                    <div id="ajaxResponse"></div>
+                                    <option id="ajaxResponse"></option>
                                 </select>
                                 <div class="input-group-append">
                                     <a class="btn btn-primary btn-lg" onclick="submitForm('edit.php')" role="button"
@@ -122,7 +122,7 @@
                                 dropOptions += `<option value="` + number + `">` + project_name + `</option>`;
 
 
-                                document.getElementById("test").innerHTML = dropOptions;
+                                document.getElementById("inputGroupSelect").innerHTML = dropOptions;
                             });
                         }
                     };
