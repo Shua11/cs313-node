@@ -95,6 +95,7 @@ router.get('/', function (req, res, next) {
     pool.end();
 
     res.json({
+        dbresult,
         "cards": featuredCards,
         "modal": featuredModals
     })
