@@ -235,79 +235,82 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <%- include('partials/footer'); %>
+        <%= cards %>
+            <%= modals %>
+
+                <!-- Footer -->
+                <%- include('partials/footer'); %>
 
 
-            <%- include('partials/endScripts'); %>
-                <script>
-                    var video_list = ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4"];
-                    var video_index = 0;
-                    var video_player = null;
-                    var sound = null;
-                    function onload() {
-                        video_player = document.getElementById("idle_video");
-                        video_player.setAttribute("src", "videos/" + video_list[video_index]);
-                        video_player.play();
-                        // document.getElementById('bgsound').play()
-                        sound = document.getElementById("bgsound");
-                        sound.loop = true;
-                        sound.muted = true;
-                        sound.autoplay = true;
-                        sound.load();
-                    }
-                    function onVideoEnded() {
-                        video_player.setAttribute("data-aos", "fade-out");
-                        if (video_index < video_list.length - 1) {
-                            video_index++;
-                        } else {
-                            video_index = 0;
-                        }
-                        video_player.setAttribute("src", "videos/" + video_list[video_index]);
-                        video_player.load();
-                        video_player.play();
-                    }
+                    <%- include('partials/endScripts'); %>
+                        <script>
+                            var video_list = ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4"];
+                            var video_index = 0;
+                            var video_player = null;
+                            var sound = null;
+                            function onload() {
+                                video_player = document.getElementById("idle_video");
+                                video_player.setAttribute("src", "videos/" + video_list[video_index]);
+                                video_player.play();
+                                // document.getElementById('bgsound').play()
+                                sound = document.getElementById("bgsound");
+                                sound.loop = true;
+                                sound.muted = true;
+                                sound.autoplay = true;
+                                sound.load();
+                            }
+                            function onVideoEnded() {
+                                video_player.setAttribute("data-aos", "fade-out");
+                                if (video_index < video_list.length - 1) {
+                                    video_index++;
+                                } else {
+                                    video_index = 0;
+                                }
+                                video_player.setAttribute("src", "videos/" + video_list[video_index]);
+                                video_player.load();
+                                video_player.play();
+                            }
 
-                    function playpause() {
-                        var vid = document.getElementById('idle_video')
-                        var sound = document.getElementById('bgsound')
-                        var text = document.getElementById('playpause')
+                            function playpause() {
+                                var vid = document.getElementById('idle_video')
+                                var sound = document.getElementById('bgsound')
+                                var text = document.getElementById('playpause')
 
-                        if (vid.paused) {
-                            text.innerHTML = "Pause";
-                            sound.play();
-                            vid.play();
-                        } else {
-                            text.innerHTML = "Play";
-                            sound.pause()
-                            vid.pause()
-                        }
+                                if (vid.paused) {
+                                    text.innerHTML = "Pause";
+                                    sound.play();
+                                    vid.play();
+                                } else {
+                                    text.innerHTML = "Play";
+                                    sound.pause()
+                                    vid.pause()
+                                }
 
-                    }
+                            }
 
-                    function muteunmute() {
-                        var sound = document.getElementById('bgsound')
-                        var text = document.getElementById('muteunmute')
-                        sound.play()
+                            function muteunmute() {
+                                var sound = document.getElementById('bgsound')
+                                var text = document.getElementById('muteunmute')
+                                sound.play()
 
-                        if (sound.muted) {
-                            text.innerHTML = "Mute";
-                            sound.muted = false;
-                        } else {
-                            text.innerHTML = "Unmute";
-                            sound.muted = true;
-                        }
-                    }
+                                if (sound.muted) {
+                                    text.innerHTML = "Mute";
+                                    sound.muted = false;
+                                } else {
+                                    text.innerHTML = "Unmute";
+                                    sound.muted = true;
+                                }
+                            }
 
-                    // Enables hover tooltips
-                    $(function () {
-                        $('[data-toggle="tooltip"]').tooltip()
-                        trigger: 'hover'
-                    })
+                            // Enables hover tooltips
+                            $(function () {
+                                $('[data-toggle="tooltip"]').tooltip()
+                                trigger: 'hover'
+                            })
 
-                    $('[rel="tooltip"]').on('click', function () {
-                        $(this).tooltip('hide')
-                    })
+                            $('[rel="tooltip"]').on('click', function () {
+                                $(this).tooltip('hide')
+                            })
 
 
 
@@ -322,7 +325,7 @@
     // }
 
 
-                </script>
+                        </script>
 </body>
 
 </html>

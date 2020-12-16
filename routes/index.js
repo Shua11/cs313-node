@@ -66,7 +66,8 @@ router.get('/', function (req, res, next) {
                         View Project
                      </button>
                   </div>
-               </div>`
+               </div>
+               `
             featuredModals += `<!-- Modal -->
                 <div class="modal fade" id="Modal' . $number . '" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -84,28 +85,35 @@ router.get('/', function (req, res, next) {
                         </div>
                         </div>
                     </div>
-                </div>`
+                </div>
+                `
         });
 
 
-        res.json({
-            "result": result.rows,
-            dbresult,
-            "cards": featuredCards,
-            "modal": featuredModals
-        })
+        // res.json({
+        //     "result": result.rows,
+        //     dbresult,
+        //     "cards": featuredCards,
+        //     "modal": featuredModals
+        // })
 
+
+        // username = req.cookies.username
+        if (res.locals.logedIn) {
+            res.redirect('/users')
+        } else {
+            res.render('index', {
+                title: 'PRC Engineering',
+                activeNav: 'index',
+                cards: featuredCards,
+                modals: featuredModals
+            })
+        }
 
 
     })
 
     pool.end();
-
-    // res.json({
-    //     dbresult,
-    //     "cards": featuredCards,
-    //     "modal": featuredModals
-    // })
 
     // // username = req.cookies.username
     // if (res.locals.logedIn) {
