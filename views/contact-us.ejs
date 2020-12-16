@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%- include('partials/head'); %>
+        <script src="/javascripts/contact-us-validation.js"></script>
+</head>
+
+<body>
+    <%- include('partials/navbar'); %>
+
+        <div id="bg">
+            <img src="\images\backgrounds\Snowy-rocky-mountains.jpg" alt="Background Img">
+        </div>
+
+        <div class="jumbotron jumbotron-fluid banner2 tranparent">
+        </div>
+
+
+
+
+
+        <div data-aos="fade-in" data-aos-duration="700">
+            <div class="container">
+                <div class="jumbotron tranparent8">
+                    <div>
+                        <h2>Contact Us</h2>
+                        <hr class="my-4">
+                        <p class="lead">PRC Engineering</p>
+                        <p>4465 Northpark Dr., Suite 401<br />
+                            Colorado Springs, Colorado 80907<br /><br />
+                            (719) 291-2744
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main body container -->
+            <div class="container">
+                <!-- Contact us form -->
+                <div class="jumbotron tranparent8">
+                    <div>
+                        <% if(emailSent=="success" ){%>
+
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Message Sent!</strong> You should recieve a response within 2 buisness days.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <%} else if(emailSent=="failure" ) { %>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>Message Failed To Send!</strong> We were unable to recieve your message.
+                                    <br>Please try again later.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <% } %>
+                                    <h2>Send Message</h2>
+                                    <hr class="my-4">
+
+                    </div>
+                    <!-- Email Form -->
+                    <form class="needs-validation" novalidate action="/email" method="post">
+
+                        Comments or questions are welcome.<br />* indicates required field.<br /><br />
+
+                        <div class="form-row">
+                            <!-- First name -->
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">First name*</label>
+                                <input type="text" class="form-control" id="validationCustom01" name="firstName"
+                                    placeholder="First" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Field cannot be left blank.
+                                </div>
+                            </div>
+                            <!-- Last Name -->
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom02">Last name*</label>
+                                <input type="text" class="form-control" id="validationCustom02" name="lastName"
+                                    placeholder="Last" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Field cannot be left blank.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <!-- Email -->
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom03">Email*</label>
+                                <input type="email" class="form-control" id="validationCustom03" name="email"
+                                    placeholder="name@example.com" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email.
+                                </div>
+                            </div>
+                            <!-- Phone -->
+                            <div class="col-md-6 mb-3">
+                                <label for="">Phone Number (optional)</label>
+                                <input type="text" class="form-control" id="validationCustom04" name="phone"
+                                    placeholder="(###) ### - ####">
+                                <!-- <div class="valid-feedback">
+                            Looks good!
+                        </div> -->
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <!-- Subject -->
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom05">Subject*</label>
+                                <input type="text" class="form-control" id="validationCustom05" name="subject" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please provide an email subject.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <!-- Subject -->
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom06">Message*</label>
+                                <textarea class="form-control" id="validationCustom06" name="message"
+                                    placeholder="Please type your message here" rows="5" required></textarea>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a message in the message box.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Message Body -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                </label>
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Submit Button -->
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <!-- Reset Button -->
+                        <button class="btn btn-primary" type="reset">Clear form</button>
+                    </form>
+                </div>
+
+
+                <div class="jumbotron tranparent8 shift-down">
+                    <h2>Map</h2>
+                    <hr class="my-4">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.2091415689233!2d-104.82928618419828!3d38.896332454611134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87134fc8a676672f%3A0x2d027eee183d4ac1!2s4465%20Northpark%20Dr%20%23401%2C%20Colorado%20Springs%2C%20CO%2080907!5e0!3m2!1sen!2sus!4v1593584587869!5m2!1sen!2sus"
+                        width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
+                </div>
+
+                <!-- <div class="jumbotron tranparent8 shift-down"> -->
+
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <%- include('partials/footer'); %>
+
+
+            <%- include('partials/endScripts'); %>
+
+                <script>
+                    // Enables hover tooltips
+                    $(function () {
+                        $('[data-toggle="tooltip"]').tooltip()
+                        trigger: 'hover'
+                    })
+
+                    $('[rel="tooltip"]').on('click', function () {
+                        $(this).tooltip('hide')
+                    })
+
+                </script>
+</body>
+
+</html>

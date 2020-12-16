@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <%- include('../partials/navbar'); %>
+
+        <!-- Background image -->
+        <div id="bg">
+            <img src="\images\backgrounds\Snowy-rocky-mountains.jpg" alt="Background Img">
+        </div>
+
+        <div class="jumbotron jumbotron-fluid banner2 tranparent">
+        </div>
+
+        <!-- Projects header-->
+        <div class="container">
+            <section class="about" id="about">
+
+                <div class="row" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="offset-sm-2 col-sm-8">
+                        <div class="hText">
+                            <h2 class="text-center">Manage Projects</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="featProj">
+            <!-- Main body container -->
+            <div class="container">
+                <!-- Contact us form -->
+                <div class="jumbotron tranparent8">
+                    <div>
+                        <h2>Add a Project</h2>
+                        <a class="btn btn-primary btn-lg" href="/addproject" role="button" data-toggle="tooltip"
+                            data-placement="bottom" title="Add a project to the site">Add Project</a>
+                        <hr class="my-4">
+
+                    </div>
+                    <!-- Email Form -->
+                    <div>
+                        <h2>Edit/Delete a Project</h2>
+                        <form method="post" id="form1">
+                            <div class="input-group">
+                                <select class="custom-select custom-select-lg" id="inputGroupSelect" name="inputSelect"
+                                    required>
+                                    <option value="0" selected>Choose...</option>
+                                    <!-- <?php include 'queryDbDropdown.php';?> -->
+                                </select>
+                                <div class="input-group-append">
+                                    <a class="btn btn-primary btn-lg" onclick="submitForm('edit.php')" role="button"
+                                        data-toggle="tooltip" data-placement="bottom"
+                                        title="Edit the selected project">Edit Project</a>
+                                    <a class="btn btn-danger btn-lg" onclick="submitForm('delete.php')" role="button"
+                                        data-toggle="tooltip" data-placement="bottom"
+                                        title="Delete the selected project">Delete Project</a>
+                                </div>
+                            </div>
+                            <div id="errortext"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <%- include('../partials/endScripts'); %>
+            <script>
+                function myfunction() {
+                    console.log("CLICKED");
+                }
+
+                // Enables hover tooltips
+                $(function () {
+                    $('[data-toggle="tooltip"]').tooltip()
+                    trigger: 'hover'
+                })
+
+                $('[rel="tooltip"]').on('click', function () {
+                    $(this).tooltip('hide')
+                })
+
+            </script>
+</body>
+
+</html>

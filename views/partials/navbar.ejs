@@ -1,0 +1,79 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img src="/images/PRC-logo.png" alt="Logo" style="height:100%;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="/" <% if(activeNav=="index" ){%>
+                            class="nav-link btn btn-color w-100 active"
+                            <%} else { %>
+                                class="nav-link btn btn-color w-100"
+                                <% } %>
+                                    >Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/who-we-are" <% if(activeNav=="who" ){%>
+                            class="nav-link btn btn-color w-100 active"
+                            <%} else { %>
+                                class="nav-link btn btn-color w-100"
+                                <% } %>
+                                    >Who We Are
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/services" <% if(activeNav=="services" ){%>
+                            class="nav-link btn btn-color w-100 active"
+                            <%} else { %>
+                                class="nav-link btn btn-color w-100"
+                                <% } %>
+                                    >Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projects" <% if(activeNav=="projects" ){%>
+                            class="nav-link btn btn-color w-100 active"
+                            <%} else { %>
+                                class="nav-link btn btn-color w-100"
+                                <% } %>
+                                    >Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact-us" <% if(activeNav=="contact" ){%>
+                            class="nav-link btn btn-color w-100 active"
+                            <%} else { %>
+                                class="nav-link btn btn-color w-100"
+                                <% } %>
+                                    >Contact Us
+                        </a>
+                    </li>
+                    <% if (logedIn) { %>
+                        <li><a href="/users/manage-projects" <% if(activeNav=="edit" ){%>
+                                class="nav-link btn btn-color w-100 active"
+                                <%} else { %>
+                                    class="nav-link btn btn-color w-100"
+                                    <% } %>
+                                        >Manage Projects
+                            </a>
+                        </li>
+                        <% } %>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </nav>
+
+</header>
+<% if (logedIn !="" ) { %>
+    <div class="text-right loggedIn">
+        <p>Welcome back <%= logedIn %> <a href="/logout">Logout?</a></p>
+    </div>
+    <% } %>

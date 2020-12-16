@@ -1,8 +1,502 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+*
+{
+    outline: none !important;
+    scroll-behavior: smooth;
+}
+/* body{
+    font-family: 'Nanum Gothic', sans-serif;
+} */
+header
+{
+    position: relative;
+    z-index: 100;
 }
 
-a {
-  color: #00B7FF;
+body{
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #000000;
+    /* overflow: scroll !important; */
 }
+
+#bg{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -10;
+}
+
+#bg img{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -10;
+}
+
+/* #bg:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(rgb(41, 41, 41),transparent);
+    pointer-events: none;
+} */
+
+/* Modal messes with the scrollbar, backgraound, and navbar. These fix it */
+.modal-open {overflow-y: scroll; padding-right: 0 !important;}
+.modal-open .navbar-expand-lg {padding-right: 16px !important;}
+
+/* a {
+  color: #00B7FF;
+} */
+
+/* .center{
+  margin: 0 auto; 
+  width: 400px;
+  background-color: aqua;
+} */
+
+
+.tranparent{
+    opacity: 1;
+    background: transparent;
+}
+.tranparent7{
+    background: rgba(255,255,255,.7);
+}
+.tranparent8{
+    background: rgba(255,255,255,.8);
+}
+.tranparent9{
+    background: rgba(255,255,255,.9);
+}
+.shift-down{
+    margin-bottom: 10vh;
+}
+
+
+
+/* Style the video: 100% width and height to cover the entire window */
+#idle_video {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -10;
+}
+
+.audiostyle
+{
+    position: fixed;
+    bottom: 20px;
+    right:5px;
+    z-index: 20;
+}
+
+.sba{
+  float: right;
+  width: 100px;
+  height: auto;
+}
+
+#sba-div{
+    transition: 1s
+}
+
+#sba-div:hover{
+    background-color: rgba(255,255,255,1);
+    /* background-color: black;
+  color: white; */
+
+}
+
+
+
+p
+{
+    font-size: 1.15rem;
+}
+
+.navbar
+{
+    background: transparent !important;
+    /* transition: 0.5s; */
+}
+.navbar-brand
+{
+    height: 150px;
+    /* transition: 0.5s; */
+}
+.navbar.scrolled
+{
+    color: #000;
+    background: #fff !important;
+    /* transition: 0.5s; */
+}
+.navbar-brand.scrolled
+{
+  height: 80px;
+  /* transition: 0.5s; */
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link 
+{
+    color: #fff;
+    background-color: #934c46;
+}
+/* .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active:hover
+{
+    color: #000;
+} */
+.navbar-light .navbar-nav .nav-link
+{
+    color: rgba(0,0,0,1);
+}
+li
+{
+    padding-left: 10px;
+}
+.btn-color
+{
+    background-color: #978d8e;
+}
+.btn-color:hover
+{
+    background-color: #505050;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus
+{
+    color: rgba(255,255,255,1);
+
+}
+/* .navbar-light .navbar-brand,
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:visited
+{
+    color: rgba(255,255,255,1);
+    font-size: 2.4rem;
+    font-weight: 600;
+} */
+
+.navbar-toggler
+{
+    background: #fff;
+}
+
+.navbar-item
+{
+    background: #fff;
+
+}
+
+.banner
+{
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 60vh;
+    min-height: 150px;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin-bottom: 0;
+}
+
+.banner2
+{
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 20vh;
+    min-height: 150px;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin-bottom: 0;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .card-body {
+        padding-top: 2px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .card-body {
+        padding-top: 2px;
+    }
+}
+
+/* .banner:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(#fff,transparent);
+    pointer-events: none;
+} */
+/* .banner:after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(360deg,#000,transparent);
+    pointer-events: none;
+} */
+.height100p
+{
+    height: 100vh;
+}
+.height75p
+{
+    min-height: 75vh;
+}
+.h100
+{
+    height: 100%;
+}
+.bannerBox
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+.bannerBox h1
+{
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 5rem;
+}
+.bannerBox p
+{
+    color: #fff;
+    font-size: 1.3rem;
+}
+/* .shift-up
+{
+    padding-bottom: 25vh;
+} */
+.about
+{
+    padding: 50px 0;
+    background: rgba(255,255,255,.7);
+    border-radius: 5px;
+    /* width: 50%; */
+}
+.hText
+{
+    color: #000;
+
+}
+.hText h2
+{
+    font-size: 2.5rem;
+}
+.aboutBox
+{
+    position: relative;
+    max-width: 300px;
+    height: 450px;
+    margin: 100 auto;
+    background: #000;
+    margin-top: 30px;
+}
+.aboutBox .imgBox
+{
+    width: 100%;
+    height: 100%;
+}
+.aboutBox .imgBox img
+{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.aboutBox .content h3
+{
+    position: relative;
+    margin: 0;
+    padding: 10px;
+    background: rgba(0,0,0,0.95);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+.aboutBox .content h3 span
+{
+    font-size: 16px;
+    font-weight: 500;
+}
+.featProj
+{
+    position: relative;
+    padding: 100px 0;
+    background: transparent;
+}
+.projSnip
+{
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    background: #fff;
+}
+.projSnip .imgBox
+{
+    height: 400px;
+}
+/* .assignSnip .imgBox img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+.projSnip .content
+{
+    padding: 15px;
+}
+.projSnip .content h1
+{
+    margin: 0;
+    padding: 0 0 10px;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.projbtn {
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+
+
+
+.bottom-align
+{
+    position: inherit;
+	bottom: 0px;
+}
+.mybtn,
+.mybtn:hover
+{
+    background: #262626;
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 20px;
+    float: right;
+}
+
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: .5rem;
+}
+
+/* .modal-open .navbar-expand-lg {
+    padding-right: 16px !important;
+    } */
+
+
+.loggedIn
+{
+    right: 0;
+    margin: 0;
+    position: fixed;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: right;
+    z-index: 100;
+    background: rgba(255,255,255,.7);
+    border-bottom-left-radius: 5px;
+}
+.loggedIn a 
+{
+    color: #934c46;
+}
+.loggedIn p
+{
+    margin: 0;
+}
+footer
+{
+    background: #000;
+    padding: 20px 0 5px;
+    text-align: center;
+    color: #777;
+}
+/* @media (min-width: 992px)
+{
+    .navbar-expand-lg .navbar-nav .nav-link
+    {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+@media (max-width: 992px)
+{
+    .navbar-light .navbar-toggler 
+    {
+        background: #fff;
+        border-radius: 0;
+    }
+    .banner
+    {
+        min-height: 100vh;
+        padding: 100px 0;
+    }
+    .bannerBox h1
+    {
+        font-size: 2rem;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link
+    {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    .about
+    {
+        padding: 80px 0;
+    }
+    .aboutBox
+    {
+        padding: 40px 0;
+    }
+    .hText h2
+    {
+        font-size: 2rem;
+    }
+    .assign
+    {
+        padding: 80px 0;
+    }
+    .assignSnip 
+    {
+        height: 200px;
+    }
+    footer 
+    {
+        background: #000;
+        padding: 0px 0 20px;
+    }
+} */

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <%- include('../partials/navbar'); %>
+
+        <!-- Background image -->
+        <div id="bg">
+            <img src="\images\backgrounds\Snowy-rocky-mountains.jpg" alt="Background Img">
+        </div>
+
+        <div class="jumbotron jumbotron-fluid banner2 tranparent">
+        </div>
+
+        <!-- Projects header-->
+        <div class="container">
+            <section class="about" id="about">
+
+                <div class="row" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="offset-sm-2 col-sm-8">
+                        <div class="hText">
+                            <h2 class="text-center">Edit Projects</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="featProj">
+            <!-- Main body container -->
+            <div class="container">
+                <!-- Contact us form -->
+                <div class="jumbotron tranparent8">
+                    <div>
+                        <h2>Add a Project</h2>
+                        <div class="container">
+                            <p>Please fill out the form to add a project to the site.</p>
+                            <form action="upload.php" method="post" enctype="multipart/form-data"
+                                class="needs-validation" novalidate>
+                                <div class="form-group">
+                                    <label for="uname">Project Name:</label>
+                                    <input type="text" class="form-control" id="pname" placeholder="Enter project name"
+                                        name="pname" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pnote">Project Note:</label>
+                                    <input type="text" class="form-control" id="pnote" placeholder="Enter project note"
+                                        name="pnote" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pdesc">Project Description:</label>
+                                    <input type="textarea" class="form-control" id="pdesc"
+                                        placeholder="Enter project description" name="pdesc" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- <div class="input-group">
+                                    <div class="input-group-prepend">
+                                       <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                    </div> -->
+                                    <label for="fileToUpload">Project Image:</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input form-control" name="fileToUpload"
+                                            id="fileToUpload" aria-describedby="fileToUpload" required>
+                                        <label class="custom-file-label" for="fileToUpload">Choose image</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="idesc">Project Image Description:</label>
+                                    <input type="text" class="form-control" id="idesc"
+                                        placeholder="Enter project image description" name="idesc" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                </div>
+
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="chkbox"> Featured project.
+                                        <div class="valid-feedback">Valid.</div>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <a class="btn btn-secondary" href="/manage-projects" role="button" data-toggle="tooltip"
+                                    data-placement="right" title="Go back to Manage Projects">Cancel</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <%- include('../partials/endScripts'); %>
+            <script>
+                function myfunction() {
+                    console.log("CLICKED");
+                }
+
+                // Enables hover tooltips
+                $(function () {
+                    $('[data-toggle="tooltip"]').tooltip()
+                    trigger: 'hover'
+                })
+
+                $('[rel="tooltip"]').on('click', function () {
+                    $(this).tooltip('hide')
+                })
+
+            </script>
+</body>
+
+</html>

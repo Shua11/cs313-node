@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <%- include('partials/navbar'); %>
+
+        <!-- Background image -->
+        <div id="bg">
+            <img src="\images\backgrounds\Snowy-rocky-mountains.jpg" alt="Background Img">
+        </div>
+
+        <div class="jumbotron jumbotron-fluid banner2 tranparent">
+        </div>
+
+        <!-- Projects header-->
+        <div class="container">
+            <section class="about" id="about">
+
+                <div class="row" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="offset-sm-2 col-sm-8">
+                        <div class="hText">
+                            <h2 class="text-center">Projects</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="featProj">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <!-- <button onclick="myfunction()" id="myBtn" title="Go to top">Top</button> -->
+                        <input type="image" class="projbtn" src="images/projects/Academy-Bridge2-791x1024.jpg"
+                            onclick="myfunction()" />
+                        <input type="image" class="projbtn" src="images/projects/Random-Rd-pond2-791x1024.jpg"
+                            onclick="myfunction()" />
+                        <input type="image" class="projbtn" src="images/projects/W-Colorado-1024x721.jpg"
+                            onclick="myfunction()" />
+                        <!-- <div class="jumbotron shift-down"> -->
+                        <!-- </div> -->
+                    </div>
+                    <div class="col-sm">
+                        <div class="jumbotron shift-down">
+                            <div>
+                                <h2 id="projectTitle">Academy Blvd. Bridge at Cottonwood Creek</h2>
+                                <hr class="my-4">
+                                <p id="projectDescription">
+                                    PRC was a member of the design team, led by CP&Y, Inc., responsible for the Grading,
+                                    Erosion and Stormwater Quality Control Plan/Report (GESC). The GSEC included a
+                                    narrative report describing erosion and sedimentation control during construction
+                                    operations. Grading Plans, details and specifications for recommended control
+                                    measures (BMPs) were also included in the GESC to ensure effective erosion control
+                                    and the preservation of the stormwater quality during the replacement of the bridge
+                                    and construction of associated trail improvements and stream bank stabilization
+                                    measures.
+                                </p>
+                                <hr class="my-4">
+                                <p id="projectNote">
+                                    PRC is happy to have been part of such a challenging project.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Footer -->
+        <%- include('partials/footer'); %>
+
+
+            <%- include('partials/endScripts'); %>
+                <script>
+                    // Enables hover tooltips
+                    $(function () {
+                        $('[data-toggle="tooltip"]').tooltip()
+                        trigger: 'hover'
+                    })
+
+                    $('[rel="tooltip"]').on('click', function () {
+                        $(this).tooltip('hide')
+                    })
+
+                    function myfunction() {
+                        console.log("CLICKED");
+                    }
+
+
+
+                </script>
+</body>
+
+</html>

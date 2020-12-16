@@ -1,0 +1,79 @@
+<!-- 
+session_start();
+
+if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
+{
+	$username = $_POST['txtUser'];
+	$password = $_POST['txtPassword'];
+
+    // Connect to the DB
+	require "dbConnect.php";
+	$db = get_db();
+	$query = 'SELECT password FROM account WHERE username=:username';
+
+	$statement = $db->prepare($query);
+	$statement->bindValue(':username', $username);
+	$result = $statement->execute();
+
+	if ($result)
+	{
+		$row = $statement->fetch();
+		$hashedPasswordFromDB = $row['password'];
+
+		// do the hashed passwords match
+		if (password_verify($password, $hashedPasswordFromDB))
+		{
+			$_SESSION['username'] = $username;
+			header("Location: prove07.php");
+			die();
+		}
+	}
+}
+ -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%- include('../partials/head'); %>
+        <link rel="stylesheet" type="text/css" href="./stylesheets/login.css">
+</head>
+
+<body>
+    <div class="form">
+
+        <% if(msgFail !="" ){%>
+            <div class="alert alert-danger text-left fade show" role="alert">
+                <strong>Login Failed!</strong><br>
+                <%= msgFail %>
+            </div>
+            <% } %>
+
+                <h2>Login</h2>
+
+                <form id="mainForm" action="/process_login" method="POST">
+                    <div class="input">
+                        <div class="inputBox">
+                            <label>Username</label>
+                            <input type="text" id="txtUser" name="txtUser" placeholder="johndoe@qwe.com">
+                        </div>
+                        <div class="inputBox">
+                            <label>Password</label>
+                            <input type="password" id="txtPassword" name="txtPassword" placeholder="********"></input>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" value="Sign In">
+                        </div>
+                    </div>
+                </form>
+                <p class="create"><a href="">Click</a> to Create New Account</p>
+                <p class="forgot"> Don't Forgot Your Password.</p>
+                <a href="/">Cancel</a>
+    </div>
+</body>
+
+</html>

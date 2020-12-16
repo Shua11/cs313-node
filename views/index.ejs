@@ -1,11 +1,328 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%- include('partials/head'); %>
+</head>
+
+<body onload="onload();">
+    <%- include('partials/navbar'); %>
+
+
+        <!-- Bacground Video -->
+        <video id="idle_video" data-aos="fade-up" data-aos-duration="1000" muted preload autoplay="true"
+            onended="onVideoEnded();">
+        </video>
+
+        <!-- Background Music -->
+        <audio id="bgsound" src="/music/motivational.mp3"></audio>
+
+        <!-- Background Controls -->
+        <div class="btn-group-vertical audiostyle">
+            <button id="playpause" type="button" class="btn btn-secondary" onclick="playpause()">Pause</button>
+            <button id="muteunmute" type="button" class="btn btn-secondary" onclick="muteunmute()">Unmute</button>
+        </div>
+
+        <!-- Spacing -->
+        <div class="jumbotron jumbotron-fluid banner tranparent">
+            <div class="container">
+                <div class="bannerBox">
+                    <div class="shift-up">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SBA 8(a) Certification -->
+        <div class="container" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="100">
+            <div class="jumbotron tranparent7 shift-down" id="sba-div">
+                <p class="lead">PRC Engineering is a privately-owned SBA 8(a) certified small business offering
+                    engineering and
+                    consulting services to Federal, County, and State government agencies as well as private sector
+                    clientele. Our
+                    core services include Water Resources, Site Development, Utilities (Water and Wastewater),
+                    Transportation and
+                    Energy Conservation.</p>
+                <hr class="my-4">
+                <div class="container-sm">
+                    <img class="sba" src="/images/8a-logo.jpg" alt="SBA logo">
+                    <p>More information about the services we offer</p>
+                    <a class="btn btn-primary btn-lg" href="/pdf/More-Information-about-the-services-we-offer.pdf"
+                        target="_blank" role="button" data-toggle="tooltip" data-placement="right"
+                        title="Opens in new tab">Click to learn more</a>
+                </div>
+            </div>
+        </div>
+
+        <!--Featured projects header-->
+        <div class="container">
+            <section class="about" id="about">
+                <div class="row" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="offset-sm-2 col-sm-8">
+                        <div class="hText">
+                            <h2 class="text-center">Featured Projects</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Featured project cards -->
+        <section class="featProj">
+            <div class="container">
+                <div class="card-deck">
+                    <div class="card border-dark shadow-lg text-center" data-aos="fade-left" data-aos-duration="1000"
+                        data-aos-delay="100">
+                        <img src="images/projects/Academy-Bridge2-791x1024.jpg" class="card-img"
+                            alt="Academy Brigde Image">
+                        <div class="card-body">
+                            <h5>Academy Blvd. Bridge at Cottonwood Creek</h5>
+                        </div>
+                        <div class="card-footer">
+                            <p>PRC is happy to have beenpart of such a challenging project.</p>
+                            <!-- <a href="#" class="btn btn-primary w-100">View Project</a> -->
+                            <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                data-target="#Modal1">
+                                View Project
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500"
+                        data-aos-delay="100">
+                        <img src="images/projects/W-Colorado-1024x721.jpg" class="card-img-top" alt="W-Colorado Image">
+                        <div class="card-body">
+                            <h5>Westside Ave. Action Plan (WAAP)- West Colorado Ave. Design of Water and Sanitary
+                                Sewer
+                                Replacement</h5>
+                        </div>
+                        <div class="card-footer">
+                            <p>PRC enjoied working with FHU, CH2M Hill and Wildcat Construction!</p>
+                            <!-- <a href="#" class="btn btn-primary w-100">View Project</a> -->
+                            <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                data-target="#Modal2">
+                                View Project
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card border-dark shadow-lg text-center" data-aos="fade-right" data-aos-duration="1000"
+                        data-aos-delay="100">
+                        <img src="images/projects/Random-Rd-pond2-791x1024.jpg" class="card-img"
+                            alt="Random Rd Pond Image">
+                        <div class="card-body">
+                            <h5>Private Residence- 12 Random Rd. Pond maintenance and Bank Stabilization</h5>
+                        </div>
+                        <div class="card-footer">
+                            <p>PRC's experience and relationships ensured another successful project!</p>
+                            <!-- <a href="#" class="btn btn-primary w-100">View Project</a> -->
+                            <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                data-target="#Modal3">
+                                View Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal1 -->
+        <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Academy Blvd. Bridge at Cottonwood Creek</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        PRC was a member of the design team, led by CP&Y, Inc., responsible for the Grading, Erosion
+                        and
+                        Stormwater
+                        Quality Control Plan/Report (GESC). The GSEC included a narrative report describing erosion
+                        and
+                        sedimentation
+                        control during construction operations. Grading Plans, details and specifications for
+                        recommended control
+                        measures (BMPs) were also included in the GESC to ensure effective erosion control and the
+                        preservation of the
+                        stormwater quality during the replacement of the bridge and construction of associated trail
+                        improvements and
+                        stream bank stabilization measures.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal2 -->
+        <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Westside Ave. Action Plan (WAAP)- West Colorado Ave.
+                            Design of Water
+                            and Sanitary Sewer Replacement</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        PRC was responsible for the design of the Water Plans and Sanitary Sewer Replacement. PRC
+                        worked
+                        closely with
+                        Town of Manitou, Colorado Springs Utilities, El Paso County and Felsburg Holt & Ullevig
+                        (FHU),
+                        to prepare
+                        Preliminary and Final Construction Documents. The improvements included replacement of
+                        16-inch
+                        and 30-inch
+                        waterlines as well as 12-inch sanitary sewer line replacement and sewer line rehabilitation
+                        (lining). Many of
+                        the existing utilities are very old and were not documented or accurately mapped when
+                        originally
+                        constructed.
+                        As such, PRC worked very closely with Wildcat Construction throughout the duration of the
+                        project to address
+                        unforeseen issues and to adjust designs when necessary.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal3 -->
+        <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Private Residence- 12 Random Rd. Pond maintenance
+                            and
+                            Bank
+                            Stabilization</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        PRC was engaged by the homeowner to assist with a Floodplain Development Permit application.
+                        PRC
+                        worked with
+                        Bailey Professional Solutions (BPS) to conduct a survey of the existing conditions. PRC then
+                        developed plans
+                        and specifications for bank stabilization and the dredging of the existing pond. PRC
+                        prepared
+                        the applications
+                        required by Cherry Hills Village, the State Engineer's Office and the United States Army
+                        Corps
+                        of Engineers.
+                        PRC has great working relationships with these agencies and were able to meet with them and
+                        discuss the
+                        implications of proposed improvements. After successful approvals from all stakeholders, the
+                        project was
+                        completed. PRC also provided Construction Administrative Services until completion of the
+                        landscape
+                        installation.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <%- include('partials/footer'); %>
+
+
+            <%- include('partials/endScripts'); %>
+                <script>
+                    var video_list = ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4"];
+                    var video_index = 0;
+                    var video_player = null;
+                    var sound = null;
+                    function onload() {
+                        video_player = document.getElementById("idle_video");
+                        video_player.setAttribute("src", "videos/" + video_list[video_index]);
+                        video_player.play();
+                        // document.getElementById('bgsound').play()
+                        sound = document.getElementById("bgsound");
+                        sound.loop = true;
+                        sound.muted = true;
+                        sound.autoplay = true;
+                        sound.load();
+                    }
+                    function onVideoEnded() {
+                        video_player.setAttribute("data-aos", "fade-out");
+                        if (video_index < video_list.length - 1) {
+                            video_index++;
+                        } else {
+                            video_index = 0;
+                        }
+                        video_player.setAttribute("src", "videos/" + video_list[video_index]);
+                        video_player.load();
+                        video_player.play();
+                    }
+
+                    function playpause() {
+                        var vid = document.getElementById('idle_video')
+                        var sound = document.getElementById('bgsound')
+                        var text = document.getElementById('playpause')
+
+                        if (vid.paused) {
+                            text.innerHTML = "Pause";
+                            sound.play();
+                            vid.play();
+                        } else {
+                            text.innerHTML = "Play";
+                            sound.pause()
+                            vid.pause()
+                        }
+
+                    }
+
+                    function muteunmute() {
+                        var sound = document.getElementById('bgsound')
+                        var text = document.getElementById('muteunmute')
+                        sound.play()
+
+                        if (sound.muted) {
+                            text.innerHTML = "Mute";
+                            sound.muted = false;
+                        } else {
+                            text.innerHTML = "Unmute";
+                            sound.muted = true;
+                        }
+                    }
+
+                    // Enables hover tooltips
+                    $(function () {
+                        $('[data-toggle="tooltip"]').tooltip()
+                        trigger: 'hover'
+                    })
+
+                    $('[rel="tooltip"]').on('click', function () {
+                        $(this).tooltip('hide')
+                    })
+
+
+
+    // function fade(element) {
+    //   var op = 0;
+    //   var timer = setInterval(function () {
+    //     if (op >= 1) clearInterval(timer);
+    //     element.style.opacity = op;
+    //     element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+    //     op += op * 0.1 || 0.1;
+    //   }, 50);
+    // }
+
+
+                </script>
+</body>
+
 </html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <%- include('partials/navbar'); %>
+
+        <div id="bg">
+            <img src="\images\backgrounds\Snowy-rocky-mountains.jpg" alt="Background Img">
+        </div>
+
+        <div class="jumbotron jumbotron-fluid banner2 tranparent">
+        </div>
+
+        <!-- Services header-->
+        <div class="container">
+            <section class="about" id="about">
+                <div class="row" data-aos="fade-in" data-aos-duration="1000">
+                    <div class="offset-sm-2 col-sm-8">
+                        <div class="hText">
+                            <h2 class="text-center">Services</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Service cards -->
+        <section class="featProj">
+            <div class="container">
+                <div class="card-deck">
+                    <!-- Water Resources -->
+                    <div class="card border-dark shadow-lg text-center" data-aos="fade-down" data-aos-duration="1000"
+                        data-aos-delay="100">
+                        <img src="images/services/banner-tall-PEAK-RESOURCE-CONSERVATION.jpg" class="card-img"
+                            alt="Water Resources Banner">
+                        <div class="card-body">
+                            <h5>Water Resources</h5>
+                        </div>
+                        <div class="card-footer">
+                            <!-- <p>PRC is happy to have beenpart of such a challenging project.</p> -->
+                            <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                data-target="#Modal1">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Water and WasteWater -->
+                    <div class="card border-dark shadow-sm text-center" data-aos="fade-down" data-aos-duration="1000"
+                        data-aos-delay="100">
+                        <img src="images/services/Stratmoor-Hills-Water-District-Colorado-Springs-Water-Resources-1024x768.jpg"
+                            class="card-img" alt="Water Resources Banner">
+                        <div class="card-body">
+                            <h5>Water and WasteWater</h5>
+                        </div>
+                        <div class="card-footer">
+                            <!-- <p>PRC is happy to have beenpart of such a challenging project.</p> -->
+                            <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                data-target="#Modal2">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br><br><br>
+
+                <div class="card-deck">
+                    <!-- Site Development -->
+                    <div class="card border-dark shadow-lg text-center" data-aos="fade-down" data-aos-duration="1000"
+                        data-aos-delay="100">
+                        <img src="images/services/Land-Development-Mesa-Properties-White-Deer-Valley-Jefferson-County-Roadside-design-Erosion-Control-1024x768.jpg"
+                            class="card-img" alt="Water Resources Banner">
+                        <div class="card-body">
+                            <h5>Site Development</h5>
+                        </div>
+                        <div class="card-footer">
+                            <!-- <p>PRC is happy to have beenpart of such a challenging project.</p> -->
+                            <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                data-target="#Modal3">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Transportation -->
+                    <div class="card border-dark shadow-lg text-center" data-aos="fade-down" data-aos-duration="1000"
+                        data-aos-delay="100">
+                        <img src="images/services/Veterans-Bridge-Pueblo-Riverwalk-HARP-1024x683.jpg" class="card-img"
+                            alt="Water Resources Banner">
+                        <div class="card-body">
+                            <h5>Transportation</h5>
+                        </div>
+                        <div class="card-footer">
+                            <!-- <p>PRC is happy to have beenpart of such a challenging project.</p> -->
+                            <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                                data-target="#Modal4">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal1 -->
+        <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Water Resources</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        PRC’s water resources department is committed to helping clients effectively manage stormwater,
+                        obtain funding for improvements, and incorporate environmentally friendly designs. From
+                        developing comprehensive master drainage plans to designing individual parcel on-site
+                        detention/water quality facilities, our solutions provide flood control and enhance water
+                        quality.
+                        <hr>
+                        <a href="/pdf/services/More-Information-about-our-Water-Resources-Services.pdf"
+                            target="_blank">More Information about our Water Resources Services</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal2 -->
+        <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Water and WasteWater</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        PRC’s water and wastewater staff is committed to protecting and preserving the water supply and
+                        directing wastewater to appropriate treatment sites. The group specializes in long-term system
+                        planning, design, construction, and operation of water supply, treatment storage, and collection
+                        & distribution systems. From line extensions to master planning, PRC treats every project as a
+                        unique challenge with resource conservation as the goal.
+                        <hr>
+                        <a href="/pdf/services/More-Information-about-our-Water-and-Wastewater-Services.pdf"
+                            target="_blank">More Information about our Water and WasteWater Services</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal3 -->
+        <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Site Development</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        PRC’s experience spans from single-family and multi-family residential developments to
+                        industrial chemical processing plants, industrial warehouses, retail “big-box” shopping centers
+                        and a wide array of roadway design and municipal projects.
+                        <hr>
+                        <a href="/pdf/services/More-Information-about-our-Site-Development-Services.pdf"
+                            target="_blank">More Information about our Site Development Services</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal4 -->
+        <div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">Transportation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        PRC’s transportation projects focus on environmental awareness, cost-effective solutions, and
+                        sensitivity to community issues. From urban multi-use paths to major arterial roadway design, we
+                        help clients meet their project goals.
+                        <hr>
+                        <a href="/pdf/services/More-Information-about-our-Transportation-Services.pdf"
+                            target="_blank">More Information about our Transportation Services</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Footer -->
+        <%- include('partials/footer'); %>
+
+
+            <%- include('partials/endScripts'); %>
+                <script>
+
+                </script>
+</body>
+
+</html>
