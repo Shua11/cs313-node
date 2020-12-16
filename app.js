@@ -56,7 +56,7 @@ app.use((req, res, next) => {
 
         // Log this to the console for debugging purposes.
         console.log("Back from DB with result:");
-        console.log(result.rows);
+        console.log(result);
     })
 
     pool.end();

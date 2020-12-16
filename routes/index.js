@@ -1,5 +1,9 @@
+require('dotenv').config();
+
 var express = require('express');
 var router = express.Router();
+
+const { Pool } = require('pg')
 
 const sendMail = require('./../views/actions/mail')
 
@@ -21,15 +25,88 @@ router.use((req, res, next) => {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    // username = req.cookies.username
-    if (res.locals.logedIn) {
-        res.redirect('/users')
-    } else {
-        res.render('index', {
-            title: 'PRC Engineering',
-            activeNav: 'index'
-        })
-    }
+
+    const connectionString = process.env.DATABASE_URL;
+
+    const pool = new Pool({ connectionString: connectionString });
+
+    const query = 'SELECT * FROM project'
+
+    pool.query(query, (err, result) => {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+
+        // Log this to the console for debugging purposes.
+        console.log("Back from DB with result:");
+        console.log(result.rows);
+
+
+        // result.rows.forEach(element => {
+
+
+
+        //     let number = element.id;
+        //     let project_name = element.project_name;
+        //     let project_note = element.project_note;
+        //     let project_description = element.project_description;
+        //     let project_image = element.project_image;
+        //     let project_image_description = element.project_image_description;
+        //     let bFeatured = element.bFeatured;
+
+        //     let first = `<div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+        //           <img src="' . $project_image . '" class="card-img-top" alt="' . $project_image_description . '">
+        //           <div class="card-body">
+        //              <h5>"' . $project_name . '"</h5>
+        //           </div>
+        //           <div class="card-footer">
+        //              <p>"' . $project_note . '"</p>
+        //              <!-- <a href="#" class="btn btn-primary w-100">View Project</a> -->
+        //              <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#Modal' . $number . '">
+        //                 View Project
+        //              </button>
+        //           </div>
+        //        </div>`
+        //     let second = `<!-- Modal -->
+        //         <div class="modal fade" id="Modal' . $number . '" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        //             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        //                 <div class="modal-content">
+        //                 <div class="modal-header">
+        //                     <h5 class="modal-title" id="ModalLabel">' . $project_name . '</h5>
+        //                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        //                         <span aria-hidden="true">&times;</span>
+        //                     </button>
+        //                 </div>
+        //                 <div class="modal-body"> ' . $project_description . '
+        //                 </div>
+        //                 <div class="modal-footer">
+        //                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        //                 </div>
+        //                 </div>
+        //             </div>
+        //         </div>`
+        // });
+
+
+
+
+    })
+
+    pool.end();
+
+    res.json({ "test": result.rows })
+
+    // // username = req.cookies.username
+    // if (res.locals.logedIn) {
+    //     res.redirect('/users')
+    // } else {
+    //     res.render('index', {
+    //         title: 'PRC Engineering',
+    //         activeNav: 'index'
+    //     })
+    // }
 })
 
 router.get('/who-we-are', (req, res, next) => {
