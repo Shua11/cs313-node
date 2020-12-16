@@ -95,8 +95,8 @@ router.get('/', function (req, res, next) {
     pool.end();
 
     res.json({
-        featuredCards,
-        featuredModals
+        "cards": featuredCards,
+        "modal": featuredModals
     })
 
     // // username = req.cookies.username
