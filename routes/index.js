@@ -143,7 +143,7 @@ router.get('/ajaxRequest', (req, res, next) => {
 
     const pool = new Pool({ connectionString: connectionString });
 
-    const query = 'SELECT * FROM project'
+    const query = 'SELECT * FROM project WHERE bFeatured IS TRUE'
 
     pool.query(query, (err, result) => {
         // If an error occurred...
@@ -156,10 +156,6 @@ router.get('/ajaxRequest', (req, res, next) => {
 
         pool.end();
     })
-
-    // res.json({ id: "testing" })
-
-
 })
 
 module.exports = router;

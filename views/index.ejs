@@ -79,14 +79,10 @@
             </div>
         </section>
 
+        <!-- Modals for Project Cards -->
         <div id="ajaxModalResponse">
-
         </div>
 
-        <div>
-            <p>Testing:</p>
-            <p id="test"></p>
-        </div>
 
         <!-- Footer -->
         <%- include('partials/footer'); %>
@@ -180,7 +176,6 @@
                         let project_image_description = '';
                         let bFeatured = '';
 
-                        // console.log("Sending AJAX Request")
                         xhttp.onreadystatechange = function () {
                             if (this.readyState == 4 && this.status == 200) {
                                 let jsonObj = JSON.parse(xhttp.responseText);
@@ -197,14 +192,6 @@
                                     project_image = element.project_image;
                                     project_image_description = element.project_image_description;
                                     bFeatured = element.bFeatured;
-
-                                    // number = element.id;
-                                    // project_name = element.id;
-                                    // project_note = element.id;
-                                    // project_description = element.id;
-                                    // project_image = element.id;
-                                    // project_image_description = element.id;
-                                    // bFeatured = element.bFeatured;
 
                                     featuredCards += `<div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100"><img src = "` + project_image + `" class="card-img-top" alt = "` + project_image_description + `"><div class="card-body">
                                                             <h5>` + project_name + `</h5>
@@ -240,7 +227,7 @@
                                 });
                             }
                         };
-                        xhttp.open("GET", "/ajaxRequest", true);
+                        xhttp.open("GET", "/ajaxFeaturedRequest", true);
                         xhttp.send();
                     }
 
