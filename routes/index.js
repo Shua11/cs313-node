@@ -124,7 +124,8 @@ router.post('/formaddproject', (req, res, next) => {
 
     const pool = new Pool({ connectionString: connectionString })
 
-    const query = `INSERT INTO project ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES(${pname}, ${pnote}, ${pdesc}, ${imagename}, ${idesc}, ${chkfeatured})`
+    // let query = `INSERT INTO project ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES(${pname}, ${pnote}, ${pdesc}, ${imagename}, ${idesc}, ${chkfeatured})`
+    const query = `INSERT INTO project ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES('test', 'test', 'test', 'test', 'test', 'test')`
 
     pool.query(query, (err, result) => {
         // If an error occurred...
