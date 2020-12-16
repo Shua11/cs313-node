@@ -152,7 +152,7 @@ router.get('/ajaxRequest', (req, res, next) => {
             console.log(err);
         }
 
-        res.json(thisReply)
+        res.json(result.rows)
 
         pool.end();
     })
