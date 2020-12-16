@@ -32,8 +32,6 @@ router.get('/', function (req, res, next) {
         res.render('index', {
             title: 'PRC Engineering',
             activeNav: 'index',
-            cards: featuredCards,
-            modals: featuredModals
         })
     }
 })

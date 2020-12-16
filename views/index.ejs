@@ -85,146 +85,123 @@
 
 
 
-        <%= cards %>
-            <%= modals %>
-
-                <!-- Footer -->
-                <%- include('partials/footer'); %>
+        <!-- Footer -->
+        <%- include('partials/footer'); %>
 
 
-                    <%- include('partials/endScripts'); %>
-                        <script>
-                            var video_list = ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4"];
-                            var video_index = 0;
-                            var video_player = null;
-                            var sound = null;
-                            function onload() {
-                                video_player = document.getElementById("idle_video");
-                                video_player.setAttribute("src", "videos/" + video_list[video_index]);
-                                video_player.play();
-                                // document.getElementById('bgsound').play()
-                                sound = document.getElementById("bgsound");
-                                sound.loop = true;
-                                sound.muted = true;
-                                sound.autoplay = true;
-                                sound.load();
+            <%- include('partials/endScripts'); %>
+                <script>
+                    var video_list = ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4"];
+                    var video_index = 0;
+                    var video_player = null;
+                    var sound = null;
+                    function onload() {
+                        video_player = document.getElementById("idle_video");
+                        video_player.setAttribute("src", "videos/" + video_list[video_index]);
+                        video_player.play();
+                        // document.getElementById('bgsound').play()
+                        sound = document.getElementById("bgsound");
+                        sound.loop = true;
+                        sound.muted = true;
+                        sound.autoplay = true;
+                        sound.load();
 
-                                // issue AJAX request
-                                getFeatured()
-                            }
-                            function onVideoEnded() {
-                                video_player.setAttribute("data-aos", "fade-out");
-                                if (video_index < video_list.length - 1) {
-                                    video_index++;
-                                } else {
-                                    video_index = 0;
-                                }
-                                video_player.setAttribute("src", "videos/" + video_list[video_index]);
-                                video_player.load();
-                                video_player.play();
-                            }
+                        // issue AJAX request
+                        getFeatured()
+                    }
+                    function onVideoEnded() {
+                        video_player.setAttribute("data-aos", "fade-out");
+                        if (video_index < video_list.length - 1) {
+                            video_index++;
+                        } else {
+                            video_index = 0;
+                        }
+                        video_player.setAttribute("src", "videos/" + video_list[video_index]);
+                        video_player.load();
+                        video_player.play();
+                    }
 
-                            function playpause() {
-                                var vid = document.getElementById('idle_video')
-                                var sound = document.getElementById('bgsound')
-                                var text = document.getElementById('playpause')
+                    function playpause() {
+                        var vid = document.getElementById('idle_video')
+                        var sound = document.getElementById('bgsound')
+                        var text = document.getElementById('playpause')
 
-                                if (vid.paused) {
-                                    text.innerHTML = "Pause";
-                                    sound.play();
-                                    vid.play();
-                                } else {
-                                    text.innerHTML = "Play";
-                                    sound.pause()
-                                    vid.pause()
-                                }
+                        if (vid.paused) {
+                            text.innerHTML = "Pause";
+                            sound.play();
+                            vid.play();
+                        } else {
+                            text.innerHTML = "Play";
+                            sound.pause()
+                            vid.pause()
+                        }
 
-                            }
+                    }
 
-                            function muteunmute() {
-                                var sound = document.getElementById('bgsound')
-                                var text = document.getElementById('muteunmute')
-                                sound.play()
+                    function muteunmute() {
+                        var sound = document.getElementById('bgsound')
+                        var text = document.getElementById('muteunmute')
+                        sound.play()
 
-                                if (sound.muted) {
-                                    text.innerHTML = "Mute";
-                                    sound.muted = false;
-                                } else {
-                                    text.innerHTML = "Unmute";
-                                    sound.muted = true;
-                                }
-                            }
+                        if (sound.muted) {
+                            text.innerHTML = "Mute";
+                            sound.muted = false;
+                        } else {
+                            text.innerHTML = "Unmute";
+                            sound.muted = true;
+                        }
+                    }
 
-                            // Enables hover tooltips
-                            $(function () {
-                                $('[data-toggle="tooltip"]').tooltip()
-                                trigger: 'hover'
-                            })
+                    // Enables hover tooltips
+                    $(function () {
+                        $('[data-toggle="tooltip"]').tooltip()
+                        trigger: 'hover'
+                    })
 
-                            $('[rel="tooltip"]').on('click', function () {
-                                $(this).tooltip('hide')
-                            })
-
-
-                            function getFeatured() {
-                                var xhttp = new XMLHttpRequest();
-
-                                let featuredCards = '';
-                                let featuredModals = '';
-
-                                let number = '';
-                                let project_name = '';
-                                let project_note = '';
-                                let project_description = '';
-                                let project_image = '';
-                                let project_image_description = '';
-                                let bFeatured = '';
-
-                                // console.log("Sending AJAX Request")
-                                xhttp.onreadystatechange = function () {
-                                    if (this.readyState == 4 && this.status == 200) {
-                                        let jsonObj = JSON.parse(xhttp.responseText);
-                                        console.log(jsonObj)
+                    $('[rel="tooltip"]').on('click', function () {
+                        $(this).tooltip('hide')
+                    })
 
 
-                                        jsonObj.forEach(element => {
-                                            // number = element.id;
-                                            // project_name = element.project_name;
-                                            // project_note = element.project_note;
-                                            // project_description = element.project_description;
-                                            // project_image = element.project_image;
-                                            // project_image_description = element.project_image_description;
-                                            // bFeatured = element.bFeatured;
+                    function getFeatured() {
+                        var xhttp = new XMLHttpRequest();
 
-                                            number = element.id;
-                                            project_name = element.id;
-                                            project_note = element.id;
-                                            project_description = element.id;
-                                            project_image = element.id;
-                                            project_image_description = element.id;
-                                            bFeatured = element.bFeatured;
+                        let featuredCards = '';
+                        let featuredModals = '';
 
-                                            featuredCards += `<div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100"><img src = "` + project_image + `" class="card-img-top" alt = "` + project_image_description + `"><div class="card-body">
-                                                            <h5>` + project_name + `</h5>
-                                                        </div>
-                                                        <div class="card-footer">
-                                                                <p>` + project_note + `</p>
-                                                            <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#Modal` + number + `">
-                                                                View Project
-                                                            </button>
-                                                        </div>
-                                                    </div > `;
-                                            featuredCards += `<div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100"><img src = "` + project_image + `" class="card-img-top" alt = "` + project_image_description + `"><div class="card-body">
-                                                            <h5>` + project_name + `</h5>
-                                                        </div>
-                                                        <div class="card-footer">
-                                                                <p>` + project_note + `</p>
-                                                            <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#Modal` + number + `">
-                                                                View Project
-                                                            </button>
-                                                        </div>
-                                                    </div > `;
-                                            featuredCards += `<div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100"><img src = "` + project_image + `" class="card-img-top" alt = "` + project_image_description + `"><div class="card-body">
+                        let number = '';
+                        let project_name = '';
+                        let project_note = '';
+                        let project_description = '';
+                        let project_image = '';
+                        let project_image_description = '';
+                        let bFeatured = '';
+
+                        // console.log("Sending AJAX Request")
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                let jsonObj = JSON.parse(xhttp.responseText);
+                                console.log(jsonObj)
+
+
+                                jsonObj.forEach(element => {
+                                    // number = element.id;
+                                    // project_name = element.project_name;
+                                    // project_note = element.project_note;
+                                    // project_description = element.project_description;
+                                    // project_image = element.project_image;
+                                    // project_image_description = element.project_image_description;
+                                    // bFeatured = element.bFeatured;
+
+                                    number = element.id;
+                                    project_name = element.id;
+                                    project_note = element.id;
+                                    project_description = element.id;
+                                    project_image = element.id;
+                                    project_image_description = element.id;
+                                    bFeatured = element.bFeatured;
+
+                                    featuredCards += `<div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100"><img src = "` + project_image + `" class="card-img-top" alt = "` + project_image_description + `"><div class="card-body">
                                                             <h5>` + project_name + `</h5>
                                                         </div>
                                                         <div class="card-footer">
@@ -235,7 +212,7 @@
                                                         </div>
                                                     </div > `;
 
-                                            featuredModals += `<div class="modal fade" id="Modal` + number + `" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                                    featuredModals += `<div class="modal fade" id="Modal` + number + `" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                                                     <div class="modal-content">
                                                                     <div class="modal-header">
@@ -253,17 +230,17 @@
                                                                 </div>
                                                             </div>`;
 
-                                            document.getElementById("ajaxCardResponse").innerHTML = featuredCards;
-                                            document.getElementById("ajaxModalResponse").innerHTML = featuredModals;
-                                        });
-                                    }
-                                };
-                                xhttp.open("GET", "/ajaxRequest", true);
-                                xhttp.send();
+                                    document.getElementById("ajaxCardResponse").innerHTML = featuredCards;
+                                    document.getElementById("ajaxModalResponse").innerHTML = featuredModals;
+                                });
                             }
+                        };
+                        xhttp.open("GET", "/ajaxRequest", true);
+                        xhttp.send();
+                    }
 
 
-                        </script>
+                </script>
 </body>
 
 </html>
