@@ -53,7 +53,7 @@
                                 <select class="custom-select custom-select-lg" id="inputGroupSelect" name="inputSelect"
                                     required>
                                     <option value="0" selected>Choose...</option>
-                                    <!-- <?php include 'queryDbDropdown.php';?> -->
+                                    <div id="dropOptions"></div>
                                 </select>
                                 <div class="input-group-append">
                                     <a class="btn btn-primary btn-lg" onclick="submitForm('edit.php')" role="button"
@@ -89,6 +89,36 @@
                 $('[rel="tooltip"]').on('click', function () {
                     $(this).tooltip('hide')
                 })
+
+
+                function getprojects() {
+                    var xhttp = new XMLHttpRequest();
+
+                    let dropOptions = '';
+
+                    let number = '';
+                    let project_name = '';
+
+
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            let jsonObj = JSON.parse(xhttp.responseText);
+
+
+                            jsonObj.forEach(element => {
+                                number = element.id;
+                                project_name = element.project_name;
+
+                                dropOptions += `<option value="` + number + `">` + $project_name + `</option>`;
+
+
+                                document.getElementById("dropOptions").innerHTML = dropOptions;
+                            });
+                        }
+                    };
+                    xhttp.open("GET", "/ajaxDropOptionsRequest", true);
+                    xhttp.send();
+                }
 
             </script>
 </body>
