@@ -38,11 +38,10 @@ router.get('/', function (req, res, next) {
 
 
 router.get('/who-we-are', (req, res, next) => {
-    // res.render('who-we-are', {
-    //     title: 'PRC Engineering',
-    //     activeNav: 'who'
-    // })
-    res.json({ "TEST": "TESTING" })
+    res.render('who-we-are', {
+        title: 'PRC Engineering',
+        activeNav: 'who'
+    })
 })
 
 router.get('/services', (req, res, next) => {
@@ -110,11 +109,11 @@ router.get('/addproject', (req, res, next) => {
 
 
 router.post('/formaddproject', (req, res, next) => {
-    const { pname, pnote, pdesc, fileToUpload, idesc, chkbox } = req.body
+    // const { pname, pnote, pdesc, fileToUpload, idesc, chkbox } = req.body
 
-    const imagename = 'https://via.placeholder.com/512x512.png?text=Image+Upload+Unavailable'
+    // const imagename = 'https://via.placeholder.com/512x512.png?text=Image+Upload+Unavailable'
 
-    let chkfeatured = false
+    // let chkfeatured = false
 
     // const connectionString = process.env.DATABASE_URL
 
