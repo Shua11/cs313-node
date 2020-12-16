@@ -190,21 +190,21 @@
 
 
                                 jsonObj.forEach(element => {
-                                    // number = element.id;
-                                    // project_name = element.project_name;
-                                    // project_note = element.project_note;
-                                    // project_description = element.project_description;
-                                    // project_image = element.project_image;
-                                    // project_image_description = element.project_image_description;
-                                    // bFeatured = element.bFeatured;
-
                                     number = element.id;
-                                    project_name = element.id;
-                                    project_note = element.id;
-                                    project_description = element.id;
-                                    project_image = element.id;
-                                    project_image_description = element.id;
+                                    project_name = element.project_name;
+                                    project_note = element.project_note;
+                                    project_description = element.project_description;
+                                    project_image = element.project_image;
+                                    project_image_description = element.project_image_description;
                                     bFeatured = element.bFeatured;
+
+                                    // number = element.id;
+                                    // project_name = element.id;
+                                    // project_note = element.id;
+                                    // project_description = element.id;
+                                    // project_image = element.id;
+                                    // project_image_description = element.id;
+                                    // bFeatured = element.bFeatured;
 
                                     featuredCards += `<div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100"><img src = "` + project_image + `" class="card-img-top" alt = "` + project_image_description + `"><div class="card-body">
                                                             <h5>` + project_name + `</h5>
