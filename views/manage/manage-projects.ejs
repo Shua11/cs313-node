@@ -8,7 +8,7 @@
     <%- include('../partials/head'); %>
 </head>
 
-<body>
+<body onload="onload();">
     <%- include('../partials/navbar'); %>
 
         <!-- Background image -->
@@ -76,6 +76,11 @@
 
         <%- include('../partials/endScripts'); %>
             <script>
+
+                function onload() {
+                    getDropOptions()
+                }
+
                 function myfunction() {
                     console.log("CLICKED");
                 }
@@ -91,7 +96,7 @@
                 })
 
 
-                function getprojects() {
+                function getDropOptions() {
                     var xhttp = new XMLHttpRequest();
 
                     let dropOptions = '';
