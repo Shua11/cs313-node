@@ -38,10 +38,11 @@ router.get('/', function (req, res, next) {
 
 
 router.get('/who-we-are', (req, res, next) => {
-    res.render('who-we-are', {
-        title: 'PRC Engineering',
-        activeNav: 'who'
-    })
+    // res.render('who-we-are', {
+    //     title: 'PRC Engineering',
+    //     activeNav: 'who'
+    // })
+    res.json({ "TEST": "TESTING" })
 })
 
 router.get('/services', (req, res, next) => {
