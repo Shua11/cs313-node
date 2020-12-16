@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -24,6 +26,45 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
+
+
+app.use((req, res, next) => {
+
+    const connectionString = process.env.DATABASE_URL;
+
+    const pool = new Pool({ connectionString: connectionString });
+
+    // const { Pool } = require('pg')
+
+    // const pool = new Pool({
+    //     user: '',
+    //     host: '',
+    //     database: '',
+    //     password: ''
+    // })
+    const query = 'SELECT * FROM project'
+    // const userInput = 42
+
+    pool.query(query, (err, result) => {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+
+        // Log this to the console for debugging purposes.
+        console.log("Back from DB with result:");
+        console.log(result.rows);
+    })
+
+    pool.end();
+
+    next()
+})
+
+
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
