@@ -8,7 +8,7 @@
     <%- include('partials/head'); %>
 </head>
 
-<body>
+<body onload="onload();">
     <%- include('partials/navbar'); %>
 
         <!-- Background image -->
@@ -74,6 +74,12 @@
 
             <%- include('partials/endScripts'); %>
                 <script>
+
+                    function onload() {
+                        getprojects()
+                    }
+
+
                     // Enables hover tooltips
                     $(function () {
                         $('[data-toggle="tooltip"]').tooltip()
@@ -89,7 +95,7 @@
                     }
 
 
-                    function getFeatured() {
+                    function getprojects() {
                         var xhttp = new XMLHttpRequest();
 
                         let projectCards = '';
