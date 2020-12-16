@@ -79,7 +79,7 @@ router.post('/process_login', (req, res, next) => {
     //TODO: validation script
     // Check user credentials if they are valid with db
 
-    if (password == 'asdf') {
+    if (password == 'password' && username == 'testaccount') {
         res.cookie('username', username)
         res.redirect('/users')
     } else {
@@ -89,9 +89,6 @@ router.post('/process_login', (req, res, next) => {
 
 router.get('/logout', (req, res, next) => {
     res.clearCookie('username')
-    // res.render('test', {
-    //     username: req.cookies.username
-    // })
     res.redirect('/login')
 })
 
@@ -105,7 +102,13 @@ router.get('/addproject', (req, res, next) => {
     })
 })
 
-
+router.get('/editproject', (req, res, next) => {
+    res.render('./manage/edit-project', {
+        title: 'PRC Engineering',
+        activeNav: 'edit',
+        emailSent: ''
+    })
+})
 
 
 router.post('/formaddproject', (req, res, next) => {
@@ -148,6 +151,7 @@ router.post('/formaddproject', (req, res, next) => {
 router.post('/projectdelete', (req, res, next) => {
     const { inputSelect } = req.body
 
+
     const connectionString = process.env.DATABASE_URL
 
     const pool = new Pool({ connectionString: connectionString })
@@ -162,55 +166,53 @@ router.post('/projectdelete', (req, res, next) => {
             console.log(err)
         }
 
+
+        pool.end();
+    })
+
+    res.render('./users/manage-projects', {
+        title: 'PRC Engineering',
+        activeNav: 'edit',
+        projectSent: 'true'
+    })
+})
+
+
+router.post('/submitprojectedit', (req, res, next) => {
+    const { pname, pnote, pdesc, fileToUpload, idesc, selected } = req.body
+
+    const imagename = 'https://via.placeholder.com/512x512.png?text=Image+Upload+Unavailable'
+
+    let chkfeatured = false
+
+    if (req.body.chkbox) {
+        chkfeatured = true
+    }
+
+
+    const connectionString = process.env.DATABASE_URL
+
+    const pool = new Pool({ connectionString: connectionString })
+
+    const query = `UPDATE project SET ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES ( '${pname}', '${pnote}', '${pdesc}', '${imagename}', '${idesc}', ${chkfeatured}) WHERE id = ${selected}`
+
+    pool.query(query, (err, result) => {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err)
+        }
+
         // res.json(result)
 
         pool.end();
     })
 
-    res.render('./manage/add-project', {
+    res.render('./users/manage-projects', {
         title: 'PRC Engineering',
         activeNav: 'edit',
         projectSent: 'true'
     })
-    // res.json(req.body)
-})
-
-
-router.post('/projectedit', (req, res, next) => {
-    // const { pname, pnote, pdesc, fileToUpload, idesc } = req.body
-
-    // const imagename = 'https://via.placeholder.com/512x512.png?text=Image+Upload+Unavailable'
-
-    // let chkfeatured = false
-
-    // if (req.body.chkbox) {
-    //     chkfeatured = true
-    // }
-
-
-    // const connectionString = process.env.DATABASE_URL
-
-    // const pool = new Pool({ connectionString: connectionString })
-
-    // const query = `INSERT INTO project  ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES ( '${pname}', '${pnote}', '${pdesc}', '${imagename}', '${idesc}', ${chkfeatured})`
-
-    // pool.query(query, (err, result) => {
-    //     // If an error occurred...
-    //     if (err) {
-    //         console.log("Error in query: ")
-    //         console.log(err)
-    //     }
-
-    //     // res.json(result)
-
-    //     pool.end();
-    // })
-
-    // res.render('./manage/add-project', {
-    //     title: 'PRC Engineering',
-    //     activeNav: 'edit',
-    //     projectSent: 'true'
-    // })
     res.json({ "Edit": "edit" })
 
 })
