@@ -180,7 +180,7 @@ router.post('/projectdelete', (req, res, next) => {
     //     activeNav: 'edit',
     //     projectSent: 'true'
     // })
-    res.json({ "Delete": "delete" })
+    res.json(req.body)
 })
 
 
