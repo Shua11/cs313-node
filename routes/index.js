@@ -54,20 +54,21 @@ router.get('/', function (req, res, next) {
             let project_image_description = element.project_image_description;
             let bFeatured = element.bFeatured;
 
-            featuredCards += `<div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
-                  <img src="' . $project_image . '" class="card-img-top" alt="' . $project_image_description . '">
-                  <div class="card-body">
-                     <h5>"' . $project_name . '"</h5>
-                  </div>
-                  <div class="card-footer">
-                     <p>"' . $project_note . '"</p>
-                     <!-- <a href="#" class="btn btn-primary w-100">View Project</a> -->
-                     <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#Modal' . $number . '">
-                        View Project
-                     </button>
-                  </div>
-               </div>
-               `
+            // featuredCards += `<div class="card border-dark shadow-lg text-center" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="100">
+            //       <img src="' . $project_image . '" class="card-img-top" alt="' . $project_image_description . '">
+            //       <div class="card-body">
+            //          <h5>"' . $project_name . '"</h5>
+            //       </div>
+            //       <div class="card-footer">
+            //          <p>"' . $project_note . '"</p>
+            //          <!-- <a href="#" class="btn btn-primary w-100">View Project</a> -->
+            //          <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#Modal' . $number . '">
+            //             View Project
+            //          </button>
+            //       </div>
+            //    </div>
+            //    `
+            featuredCards += `<h1>Hello world</h1>`
             featuredModals += `<!-- Modal -->
                 <div class="modal fade" id="Modal' . $number . '" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
