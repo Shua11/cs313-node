@@ -42,7 +42,7 @@
                         <h2>Add a Project</h2>
                         <div class="container">
                             <p>Please fill out the form to add a project to the site.</p>
-                            <form action="upload.php" method="post" enctype="multipart/form-data"
+                            <form action="/formaddproject" method="post" enctype="multipart/form-data"
                                 class="needs-validation" novalidate>
                                 <div class="form-group">
                                     <label for="uname">Project Name:</label>
@@ -109,9 +109,6 @@
 
         <%- include('../partials/endScripts'); %>
             <script>
-                function myfunction() {
-                    console.log("CLICKED");
-                }
 
                 // Enables hover tooltips
                 $(function () {
