@@ -133,7 +133,7 @@ router.post('/formaddproject', (req, res, next) => {
     //     pool.end();
     // })
 
-    res.json({ "TEST": "TESTING" })
+    res.json(req.body)
 })
 
 router.post('/email', (req, res, next) => {
