@@ -28,6 +28,7 @@ router.get('/', function (req, res, next) {
 
     let featuredCards = ''
     let featuredModals = ''
+    let dbresult = ''
 
     const connectionString = process.env.DATABASE_URL;
 
@@ -42,7 +43,7 @@ router.get('/', function (req, res, next) {
             console.log(err);
         }
 
-        let dbresult = result.rows
+        dbresult = result.rows
         dbresult.forEach(element => {
 
             let number = element.id;
