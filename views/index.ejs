@@ -180,9 +180,6 @@
                             if (this.readyState == 4 && this.status == 200) {
                                 let jsonObj = JSON.parse(xhttp.responseText);
                                 console.log(jsonObj)
-                                document.getElementById("test").innerHTML = jsonObj;
-
-
 
                                 jsonObj.forEach(element => {
                                     number = element.id;
