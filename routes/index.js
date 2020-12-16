@@ -145,6 +145,88 @@ router.post('/formaddproject', (req, res, next) => {
     })
 })
 
+router.post('/projectdelete', (req, res, next) => {
+    // const { pname, pnote, pdesc, fileToUpload, idesc } = req.body
+
+    // const imagename = 'https://via.placeholder.com/512x512.png?text=Image+Upload+Unavailable'
+
+    // let chkfeatured = false
+
+    // if (req.body.chkbox) {
+    //     chkfeatured = true
+    // }
+
+
+    // const connectionString = process.env.DATABASE_URL
+
+    // const pool = new Pool({ connectionString: connectionString })
+
+    // const query = `INSERT INTO project  ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES ( '${pname}', '${pnote}', '${pdesc}', '${imagename}', '${idesc}', ${chkfeatured})`
+
+    // pool.query(query, (err, result) => {
+    //     // If an error occurred...
+    //     if (err) {
+    //         console.log("Error in query: ")
+    //         console.log(err)
+    //     }
+
+    //     // res.json(result)
+
+    //     pool.end();
+    // })
+
+    // res.render('./manage/add-project', {
+    //     title: 'PRC Engineering',
+    //     activeNav: 'edit',
+    //     projectSent: 'true'
+    // })
+    res.json({ "Delete": "delete" })
+})
+
+
+router.post('/projectedit', (req, res, next) => {
+    // const { pname, pnote, pdesc, fileToUpload, idesc } = req.body
+
+    // const imagename = 'https://via.placeholder.com/512x512.png?text=Image+Upload+Unavailable'
+
+    // let chkfeatured = false
+
+    // if (req.body.chkbox) {
+    //     chkfeatured = true
+    // }
+
+
+    // const connectionString = process.env.DATABASE_URL
+
+    // const pool = new Pool({ connectionString: connectionString })
+
+    // const query = `INSERT INTO project  ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES ( '${pname}', '${pnote}', '${pdesc}', '${imagename}', '${idesc}', ${chkfeatured})`
+
+    // pool.query(query, (err, result) => {
+    //     // If an error occurred...
+    //     if (err) {
+    //         console.log("Error in query: ")
+    //         console.log(err)
+    //     }
+
+    //     // res.json(result)
+
+    //     pool.end();
+    // })
+
+    // res.render('./manage/add-project', {
+    //     title: 'PRC Engineering',
+    //     activeNav: 'edit',
+    //     projectSent: 'true'
+    // })
+    res.json({ "Edit": "edit" })
+
+})
+
+
+
+
+
 router.post('/email', (req, res, next) => {
 
     const { firstName, lastName, email, phone, subject, message } = req.body

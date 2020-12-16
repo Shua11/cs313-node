@@ -55,11 +55,11 @@
                                     <option value="0" selected>Loading Projects...</option>
                                 </select>
                                 <div class="input-group-append">
-                                    <a class="btn btn-primary btn-lg" onclick="submitForm('edit.php')" role="button"
+                                    <a class="btn btn-primary btn-lg" onclick="submitForm('/projectedit')" role="button"
                                         data-toggle="tooltip" data-placement="bottom"
                                         title="Edit the selected project">Edit Project</a>
-                                    <a class="btn btn-danger btn-lg" onclick="submitForm('delete.php')" role="button"
-                                        data-toggle="tooltip" data-placement="bottom"
+                                    <a class="btn btn-danger btn-lg" onclick="submitForm('/projectdelete')"
+                                        role="button" data-toggle="tooltip" data-placement="bottom"
                                         title="Delete the selected project">Delete Project</a>
                                 </div>
                             </div>
@@ -129,6 +129,17 @@
                     xhttp.send();
                 }
 
+                function submitForm(action) {
+                    var form = document.getElementById('form1');
+                    var selected = document.getElementById('inputGroupSelect').value;
+                    if (selected != "0") {
+                        form.action = action;
+                        form.submit();
+                    } else {
+                        document.getElementById("errortext").innerHTML = "Please choose a project.";
+                        document.getElementById("errortext").style.color = 'red';
+                    }
+                }
             </script>
 </body>
 
