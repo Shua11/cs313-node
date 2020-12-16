@@ -90,13 +90,13 @@ router.get('/', function (req, res, next) {
         // });
 
 
+        res.json({ "test": result.rows })
 
 
     })
 
     pool.end();
 
-    res.json({ "test": result.rows })
 
     // // username = req.cookies.username
     // if (res.locals.logedIn) {
