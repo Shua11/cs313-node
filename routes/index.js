@@ -88,6 +88,12 @@ router.get('/', function (req, res, next) {
         });
 
 
+        res.json({
+            "result": result.rows,
+            dbresult,
+            "cards": featuredCards,
+            "modal": featuredModals
+        })
 
 
 
@@ -95,11 +101,11 @@ router.get('/', function (req, res, next) {
 
     pool.end();
 
-    res.json({
-        dbresult,
-        "cards": featuredCards,
-        "modal": featuredModals
-    })
+    // res.json({
+    //     dbresult,
+    //     "cards": featuredCards,
+    //     "modal": featuredModals
+    // })
 
     // // username = req.cookies.username
     // if (res.locals.logedIn) {
