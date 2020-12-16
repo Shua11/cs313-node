@@ -139,25 +139,25 @@ router.post('/email', (req, res, next) => {
 
 
 router.get('/ajaxRequest', (req, res, next) => {
-    // const connectionString = process.env.DATABASE_URL;
+    const connectionString = process.env.DATABASE_URL;
 
-    // const pool = new Pool({ connectionString: connectionString });
+    const pool = new Pool({ connectionString: connectionString });
 
-    // const query = 'SELECT * FROM project'
+    const query = 'SELECT * FROM project'
 
-    // pool.query(query, (err, result) => {
-    //     // If an error occurred...
-    //     if (err) {
-    //         console.log("Error in query: ")
-    //         console.log(err);
-    //     }
+    pool.query(query, (err, result) => {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
 
-    //     res.json(thisReply)
+        res.json(thisReply)
 
-    //     pool.end();
-    // })
+        pool.end();
+    })
 
-    res.json({ id: "testing" })
+    // res.json({ id: "testing" })
 
 
 })
