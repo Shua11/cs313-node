@@ -125,7 +125,9 @@ router.post('/formaddproject', (req, res, next) => {
     const pool = new Pool({ connectionString: connectionString })
 
     // let query = `INSERT INTO project ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES(${pname}, ${pnote}, ${pdesc}, ${imagename}, ${idesc}, ${chkfeatured})`
-    const query = `INSERT INTO project ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES('test', 'test', 'test', 'test', 'test', 'test')`
+    // `INSERT INTO project ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES('test', 'test', 'test', 'test', 'test', 'test')`
+
+    const query = `INSERT INTO project  ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES ( 'Academy Blvd. Bridge at Cottonwood Creek', 'PRC is happy to have beenpart of such a challenging project.', 'PRC was a member of the design team, led by CP&Y, Inc., responsible for the Grading, Erosion and Stormwater Quality Control Plan/Report (GESC). The GSEC included a narrative report describing erosion and sedimentation control during construction operations. Grading Plans, details and specifications for recommended control measures (BMPs) were also included in the GESC to ensure effective erosion control and the preservation of the stormwater quality during the replacement of the bridge and construction of associated trail improvements and stream bank stabilization measures.', 'images/projects/Academy-Bridge2-791x1024.jpg', 'Academy Bridge Image', true)`
 
     pool.query(query, (err, result) => {
         // If an error occurred...
