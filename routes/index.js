@@ -109,29 +109,34 @@ router.get('/addproject', (req, res, next) => {
 
 
 router.post('/formaddproject', (req, res, next) => {
-    // const { pname, pnote, pdesc, fileToUpload, idesc, chkbox } = req.body
+    const { pname, pnote, pdesc, fileToUpload, idesc } = req.body
 
-    // const imagename = 'https://via.placeholder.com/512x512.png?text=Image+Upload+Unavailable'
+    const imagename = 'https://via.placeholder.com/512x512.png?text=Image+Upload+Unavailable'
 
-    // let chkfeatured = false
+    let chkfeatured = false
 
-    // const connectionString = process.env.DATABASE_URL
+    if (req.body.chkbox) {
+        chkfeatured = true
+    }
 
-    // const pool = new Pool({ connectionString: connectionString })
 
-    // const query = `INSERT INTO project ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES(${pname}, ${pnote}, ${pdesc}, ${imagename}, ${idesc}, ${chkfeatured})`
+    const connectionString = process.env.DATABASE_URL
 
-    // pool.query(query, (err, result) => {
-    //     // If an error occurred...
-    //     if (err) {
-    //         console.log("Error in query: ")
-    //         console.log(err)
-    //     }
+    const pool = new Pool({ connectionString: connectionString })
 
-    //     res.json(result)
+    const query = `INSERT INTO project ( project_name, project_note, project_description, project_image, project_image_description, bFeatured) VALUES(${pname}, ${pnote}, ${pdesc}, ${imagename}, ${idesc}, ${chkfeatured})`
 
-    //     pool.end();
-    // })
+    pool.query(query, (err, result) => {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err)
+        }
+
+        res.json(result)
+
+        pool.end();
+    })
 
     res.json(req.body)
 })
