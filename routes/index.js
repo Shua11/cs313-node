@@ -136,9 +136,7 @@ router.post('/email', (req, res, next) => {
 
 
 
-
-
-router.get('/ajaxRequest', (req, res, next) => {
+router.get('/ajaxFeaturedRequest', (req, res, next) => {
     const connectionString = process.env.DATABASE_URL;
 
     const pool = new Pool({ connectionString: connectionString });
